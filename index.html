@@ -3,8 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        form input {
+            border-color: blue;
+        }
+
+        .my-book-app form input {
+            border-color: red;
+        }
+
+        .my-book-app form.user input {
+            border-color: green;
+        }
+
+        nav ul > li > a {
+            color: blue;
+        }
+    </style>
 </head>
-<body>
+<body class="my-book-app">
 <header>
     <nav>
         <ul>
@@ -14,7 +31,7 @@
         </ul>
     </nav>
 </header>
-<form>
+<form class="user">
     <label for="firstName">First name</label>
     <input id="firstName">
     <label for="lastName">Last name</label>
