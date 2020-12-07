@@ -1,0 +1,50 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul > li:not(:last-child) {
+    margin-right: .5rem;
+}
+
+
+form {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form input {
+    margin-bottom: 5px;
+}
+
+aside {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+}
+
+footer {
+    position: relative;
+}
+
+header {
+    border: red solid 2px;
+    height: 80px;
+    padding: 20px;
+}
