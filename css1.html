@@ -7,6 +7,23 @@
     <title>RWC CSS Exercise 1</title>
     <style>
         /* Insert CSS here */
+        div {
+            display: inline-block;
+        }
+
+        div > div {
+            height: 50px;
+            width: 50px;
+            background-color: blue;
+        }
+
+        div > div:first-child {
+            background-color: red;
+        }
+
+        div > div:last-child {
+            background-color: green;
+        }
     </style>
 </head>
 <body>
