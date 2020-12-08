@@ -1,0 +1,23 @@
+{
+  "name": "mwd-7.12.2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmatczak/mwd-7.12.2020.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmatczak/mwd-7.12.2020/issues"
+  },
+  "homepage": "https://github.com/mmatczak/mwd-7.12.2020#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
