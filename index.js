@@ -1,31 +1,42 @@
-const token = 'YWRtaW46dGVzdDEyMw==';
-const decodedToken = atob(token);
-const tokens = decodedToken.split(':');
-// const user = tokens[0];
-// const password = tokens[1];
-const [user, password] = decodedToken.split(':');
+class EmployeeCtrl {
+    constructor() {
+        this.firstNameHistory = [];
+        this.firstNameInputElement = document.querySelector('#firstName');
+        this.buttonElement = document.querySelector('button');
+    }
 
-const props = {
-    user: {name: 'Marek'},
-    onChangeFn(value) {
-        console.log(value);
-    },
-    // rest
+    updateHistory() {
+        this.firstNameInputElement.addEventListener(
+            'keyup', event => {
+                const newValue = event.target.value;
+                this.firstNameHistory.push(newValue);
+            });
+    }
+
+    // printHistory() {
+    //     this.firstNameHistory
+    //         .forEach((historyItem, index) => console.log(`${index}: ${historyItem}`));
+    // }
+
+    printHistoryOnButtonClick() {
+        this.buttonElement.addEventListener('click', () => {
+            this.firstNameHistory
+                .forEach((historyItem, index) => console.log(`${index}: ${historyItem}`));
+        });
+    }
 }
 
-myFun(props);
+const controller = new EmployeeCtrl();
+controller.updateHistory();
+// document.querySelector('button').addEventListener('click', controller.printHistory.bind(controller));
+controller.printHistoryOnButtonClick();
 
-function myFun({user: myUser, onChangeFn}) {
-// function myFun(props) {
-    // const user = props.user;
-    // const onChangeFn = props.onChangeFn;
-    console.log(myUser.name);
-    onChangeFn('dff');
+function add(a, b) {
+    console.log(this.myContext);
+    return a + b;
 }
 
-console.log(user);
-console.log(password);
-
-
-
+add(1, 3);
+add.call({myContext: 'Marek'}, 1, 3);
+add.apply(null, [1, 3]);
 
