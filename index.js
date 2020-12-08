@@ -1,42 +1,35 @@
-class EmployeeCtrl {
-    constructor() {
-        this.firstNameHistory = [];
-        this.firstNameInputElement = document.querySelector('#firstName');
-        this.buttonElement = document.querySelector('button');
-    }
-
-    updateHistory() {
-        this.firstNameInputElement.addEventListener(
-            'keyup', event => {
-                const newValue = event.target.value;
-                this.firstNameHistory.push(newValue);
-            });
-    }
-
-    // printHistory() {
-    //     this.firstNameHistory
-    //         .forEach((historyItem, index) => console.log(`${index}: ${historyItem}`));
-    // }
-
-    printHistoryOnButtonClick() {
-        this.buttonElement.addEventListener('click', () => {
-            this.firstNameHistory
-                .forEach((historyItem, index) => console.log(`${index}: ${historyItem}`));
+class EmployeeService {
+    getOne(id) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (id < 0) {
+                    reject(`Id not correct ${id}`);
+                } else {
+                    resolve({
+                        id, name: 'John'
+                    });
+                }
+            }, 1000);
         });
     }
 }
 
-const controller = new EmployeeCtrl();
-controller.updateHistory();
-// document.querySelector('button').addEventListener('click', controller.printHistory.bind(controller));
-controller.printHistoryOnButtonClick();
+const employees = new EmployeeService();
+employees.getOne()
+    .then(
+        employee => {
+            return employee.id;
+        }, error => {
+            console.error(error);
+            return Promise.reject(error); // throw e
+        })
+    .then(id => {
+            console.log(id);
+        },
+        error => console.error(error))
+    .then(null, error => console.error(error))
+    .catch(error => console.error(error))
 
-function add(a, b) {
-    console.log(this.myContext);
-    return a + b;
-}
 
-add(1, 3);
-add.call({myContext: 'Marek'}, 1, 3);
-add.apply(null, [1, 3]);
+console.log('End'); // 1
 
