@@ -1,35 +1,8 @@
-class EmployeeService {
-    getOne(id) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (id < 0) {
-                    reject(`Id not correct ${id}`);
-                } else {
-                    resolve({
-                        id, name: 'John'
-                    });
-                }
-            }, 1000);
-        });
-    }
-}
-
-const employees = new EmployeeService();
-employees.getOne()
-    .then(
-        employee => {
-            return employee.id;
-        }, error => {
-            console.error(error);
-            return Promise.reject(error); // throw e
-        })
-    .then(id => {
-            console.log(id);
-        },
-        error => console.error(error))
-    .then(null, error => console.error(error))
-    .catch(error => console.error(error))
+// Create the EmployeeService with two methods:
+// getOne: (id: number): Promise<{id: number, firstName: string, lastName: string}>  // delay of 1 sec.
+// update: (employee: {id: number, firstName: string, lastName: string}): Promise<{id: number, firstName: string, lastName: string}> // delay of 1 sec.
 
 
-console.log('End'); // 1
-
+// Create the EmployeeCtrl which
+// initializes the form with the values coming from EmployeeService.getOne (let us assume id = 1234)
+// on form submission call the EmployeeService.update and print eventually the changed employee object to the console
