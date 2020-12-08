@@ -1,38 +1,30 @@
-const myNumbers = [1, 3, 5, 6, 8];
-const names = ['Marek', 'John', 'James'];
-const person = [{
-    name: 'Marek',
-    age: 41
-}];
+const token = 'YWRtaW46dGVzdDEyMw==';
+const decodedToken = atob(token);
+const tokens = decodedToken.split(':');
+// const user = tokens[0];
+// const password = tokens[1];
+const [user, password] = decodedToken.split(':');
 
-// myNumbers.push(2, 4, 4);
-// myNumbers.push();
-// myNumbers.splice()
-
-let sum = 0;
-for (let i = 0; i < myNumbers.length; i++) {
-    const myNumber = myNumbers[i];
-    const biggerNumber = add2(myNumber)
-    if (onlyGreaterThan5(biggerNumber)) {
-        sum = sum + biggerNumber;
-    }
+const props = {
+    user: {name: 'Marek'},
+    onChangeFn(value) {
+        console.log(value);
+    },
+    // rest
 }
 
-console.log(sum);
+myFun(props);
 
-console.log(myNumbers
-    .map(add2)
-    .filter(onlyGreaterThan5)
-    .reduce((sum, myNumber) => sum + myNumber, 0)
-);
-
-function onlyGreaterThan5(myNumber) {
-    return myNumber > 5;
+function myFun({user: myUser, onChangeFn}) {
+// function myFun(props) {
+    // const user = props.user;
+    // const onChangeFn = props.onChangeFn;
+    console.log(myUser.name);
+    onChangeFn('dff');
 }
 
-function add2(myNumber) {
-    return myNumber + 2;
-}
+console.log(user);
+console.log(password);
 
 
 
